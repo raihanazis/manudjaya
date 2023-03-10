@@ -1,0 +1,18 @@
+INSTALASI OPENSID DI LOCALHOST
+1. Buat database di phpmyadmin
+2. Import database OPENSID.sql ke phpmyadmin
+3. Setting nama database di file config.php pada folder:
+- desa/config
+- donjo-app/config
+
+NOTE: Harap membaca setiap dokumentasi pada file-file yang terdapat dalam semua folder.
+
+
+HALAMAN OPENSID
+Jalankan website nya : localhost/NAMAFOLDER
+Panel admin : localhost/NAMAFOLDER/index.php/siteman
+
+
+ADMIN PANEL OPENSID
+user : admin
+pas : Opensid2021@

@@ -1,0 +1,5 @@
+CARA MENGGANTI TEMA WEB OPENSID
+1. Buka admin panel
+2. Klik menu Pengaturan
+3. Pilih Aplikasi (pada bagian web_theme, pilih tema) setelah itu simpan
+Download koleksi tema OPENSID di http://www.401xd.com
