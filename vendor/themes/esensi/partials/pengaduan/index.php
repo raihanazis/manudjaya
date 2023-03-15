@@ -122,6 +122,19 @@
             <input name="judul" type="text" class="form-input" required="" placeholder="Judul*" value="<?= $data['judul'] ?>">
           </div>
           <div class="py-2">
+          <select class="form-control" name="kategori" id="kategori" required>
+            <option value="">No Selected</option>
+            <option value="Layanan Administrasi Kependudukan">Layanan Administrasi Kependudukan</option>
+            <option value="Bencana">Bencana</option>
+            <option value="Fasilitas Sosial/Umum">Fasilitas Sosial/Umum</option>
+            <option value="Pariwisata dan Kebudayaan">Pariwisata dan Kebudayaan</option>
+            <option value="Gangguan Ketentraman dan Ketertiban">Gangguan Ketentraman dan Ketertiban</option>
+            <option value="Kesehatan">Kesehatan</option>
+            <option value="UMKM">UMKM</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+          </div>
+          <div class="py-2">
             <textarea name="isi" required="" class="form-textarea" placeholder="Isi Pengaduan*" rows="4"><?= $data['isi'] ?></textarea>
           </div>
           <div class="py-2">
