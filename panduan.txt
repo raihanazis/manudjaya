@@ -1,0 +1,1 @@
+Untuk melakukan penambahan routing ada di folder donjo-app/config/routes.php

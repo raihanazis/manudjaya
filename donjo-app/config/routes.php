@@ -141,6 +141,12 @@ $route['data-kelompok/(:any)'] = WEB . '/kelompok/detail/$1';
 // Vaksin
 $route['data-vaksinasi'] = WEB . '/vaksin';
 
+// Warga
+$warga = 'warga';
+$route[$warga . '/daftar'] = MANDIRI . '/masuk/cek_pin';
+$route[$warga . '/masuk'] = MANDIRI . '/masuk/cek_pin';
+$route[$warga . '/lupa-pass'] = MANDIRI . '/masuk/lupa_pin';
+
 // Halaman Layanan Mandiri
 // Auth
 $mandiri                                                      = 'layanan-mandiri';
