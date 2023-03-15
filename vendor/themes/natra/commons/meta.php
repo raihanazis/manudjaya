@@ -40,6 +40,7 @@
 <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/dataTables.bootstrap.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url("$this->theme_folder/$this->theme/assets/css/custom.css"); ?>">
 
+
 <?php if(isset($single_artikel)): ?>
 	<meta property="og:title" content="<?= htmlspecialchars($single_artikel["judul"]); ?>"/>
 	<meta property="og:url" content="<?= site_url('artikel/'.buat_slug($single_artikel))?>"/>

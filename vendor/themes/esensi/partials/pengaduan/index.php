@@ -8,13 +8,24 @@
 </nav>
 <h1 class="text-h2">Pengaduan</h1>
 <form action="<?= $search_action; ?>" method="get">
-  <div class="flex gap-3 lg:w-7/12 flex-col lg:flex-row py-5">
+  <div class="flex gap-3 lg:w-full flex-col lg:flex-row py-5">
     <button type="button" class="btn btn-primary flex-shrink-0" data-bs-toggle="modal" data-bs-target="#newpengaduan"><i class="fas fa-pencil-alt mr-1"></i> Buat Pengaduan</button>
     <select class="form-input inline-block select2" id="caristatus" name="caristatus">
       <option value="">Semua Status</option>
       <option value="1" <?= selected($caristatus, 1); ?>>Menunggu Diproses</option>
       <option value="2" <?= selected($caristatus, 2); ?>>Sedang Diproses</option>
       <option value="3" <?= selected($caristatus, 3); ?>>Selesai Diproses</option>
+    </select>
+    <select class="form-input inline-block select2" id="caristatus" name="caristatus">
+      <option value="">Semua Kategori</option>
+      <option value="Layanan Administrasi Kependudukan">Layanan Administrasi Kependudukan</option>
+            <option value="Bencana">Bencana</option>
+            <option value="Fasilitas Sosial/Umum">Fasilitas Sosial/Umum</option>
+            <option value="Pariwisata dan Kebudayaan">Pariwisata dan Kebudayaan</option>
+            <option value="Gangguan Ketentraman dan Ketertiban">Gangguan Ketentraman dan Ketertiban</option>
+            <option value="Kesehatan">Kesehatan</option>
+            <option value="UMKM">UMKM</option>
+            <option value="Lainnya">Lainnya</option>
     </select>
     <input type="text" name="cari" value="<?= $cari; ?>" placeholder="Cari pengaduan disini..." class="form-input inline-block">
     <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
