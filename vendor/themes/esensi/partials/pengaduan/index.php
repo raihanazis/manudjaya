@@ -62,7 +62,7 @@
             </div>
             <div class="modal-body relative py-2 px-3 lg:px-5 text-sm lg:text-base">
               <div class="w-full py-2 space-y-2">
-                <p><?= $value['kategori'] ?></p>
+                <p class="text-h6 text-primary-200"><?= $value['kategori'] ?></p>
                 <p class="text-muted text-xs lg:text-sm">Pengaduan oleh <?= $value['nama']; ?> | <?= $value['created_at'] ?></p>
                 <p class="italic">"<?= $value['isi'] ?></p>
                 <?php if ($value['foto']) : ?>
