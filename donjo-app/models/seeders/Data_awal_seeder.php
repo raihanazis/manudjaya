@@ -321,6 +321,7 @@ class Data_awal_seeder extends CI_Model
                 `email` varchar(100) DEFAULT NULL,
                 `telepon` varchar(20) DEFAULT NULL,
                 `judul` varchar(100) DEFAULT NULL,
+                `lokasi` varchar(100) DEFAULT NULL,
                 `isi` text NOT NULL,
                 `status` int(1) NOT NULL DEFAULT 1 COMMENT '1 = menunggu proses, 2 = Sedang Diproses, 3 = Selesai Diproses',
                 `foto` varchar(100) DEFAULT NULL,

@@ -177,6 +177,7 @@ class Pengaduan_model extends CI_Model
             'telepon' => bilangan($post['telepon']),
             'judul'   => htmlentities($post['judul']),
             'isi'     => htmlentities($post['isi']),
+            'lokasi'   => htmlentities($post['lokasi']),
         ];
     }
 

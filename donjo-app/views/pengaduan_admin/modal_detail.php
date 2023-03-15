@@ -40,6 +40,12 @@
 					</div>
 
 					<div class="form-group">
+						<label>Lokasi</label>
+						<input type="text" class="form-control" disabled value="<?= $value['lokasi']; ?>">
+					</div>
+
+
+					<div class="form-group">
 						<?php if ($value['foto']) : ?>
 							<label>Gambar</label><br>
 							<img class="img-responsive" src="<?= base_url(LOKASI_PENGADUAN . $value['foto']); ?>">

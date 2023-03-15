@@ -125,6 +125,9 @@
             <textarea name="isi" required="" class="form-textarea" placeholder="Isi Pengaduan*" rows="4"><?= $data['isi'] ?></textarea>
           </div>
           <div class="py-2">
+            <input name="lokasi" type="text" class="form-input" required="" placeholder="Lokasi*" value="<?= $data['lokasi'] ?>">
+          </div>
+          <div class="py-2">
             <div class="relative">
               <input type="text" accept="image/*" onchange="readURL(this);" class="form-input" id="file_path" placeholder="Unggah Foto" name="foto">
               <input type="file" accept="image/*" onchange="readURL(this);" class="hidden" id="file" name="foto">

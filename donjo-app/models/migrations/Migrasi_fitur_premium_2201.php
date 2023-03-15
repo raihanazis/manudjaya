@@ -253,6 +253,12 @@ class Migrasi_fitur_premium_2201 extends MY_model
                     'null'       => true,
                 ],
 
+                'lokasi' => [
+                    'type'       => 'VARCHAR',
+                    'constraint' => 100,
+                    'null'       => true,
+                ],
+
                 'isi' => [
                     'type' => 'TEXT',
                 ],
