@@ -143,9 +143,7 @@ $route['data-vaksinasi'] = WEB . '/vaksin';
 
 // Warga
 $warga = 'warga';
-$route[$warga . '/daftar'] = MANDIRI . '/masuk/cek_pin';
-$route[$warga . '/masuk'] = MANDIRI . '/masuk/cek_pin';
-$route[$warga . '/lupa-pass'] = MANDIRI . '/masuk/lupa_pin';
+$route[$warga . '/daftar'] = WARGA . '/daftar_warga';
 
 // Halaman Layanan Mandiri
 // Auth

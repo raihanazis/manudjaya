@@ -64175,6 +64175,15 @@ class Data_awal_seeder extends CI_Model
                 "updated_at" => "2021-05-01 01:45:38",
                 "updated_by" => 0,
             ],
+            [
+                "id" => 6,
+                "nama" => "Warga",
+                "jenis" => 1,
+                "created_at" => "2021-05-01 01:45:38",
+                "created_by" => null,
+                "updated_at" => "2021-05-01 01:45:38",
+                "updated_by" => 0,
+            ],
         ]);
 
         log_message("error", "Jalankan " . __FUNCTION__);

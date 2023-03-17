@@ -136,6 +136,7 @@ define('WEB', 'fweb');
 define('MANDIRI', 'fmandiri');
 define('ADMIN', 'fadmin');
 define('KEHADIRAN', 'kehadiran');
+define('WARGA', 'warga');
 
 /**
  * Custom path directory
