@@ -43,7 +43,7 @@
       </ul>
 
       <div class="flex flex-col lg:flex-row gap-3 mt-5 lg:mt-0 flex-wrap lg:justify-end w-full px-3">
-      <a href="<?= site_url('warga/daftar') ?>" class="btn btn-secondary text-sm w-full lg:w-auto text-center">Login Warga <i class="fas fa-external-link-alt ml-1"></i></a>
+      <a href="<?= site_url('warga/login') ?>" class="btn btn-secondary text-sm w-full lg:w-auto text-center">Login Warga <i class="fas fa-external-link-alt ml-1"></i></a>
         <?php if($this->setting->layanan_mandiri == 1) : ?>
           <a href="<?= site_url('layanan-mandiri') ?>" class="btn btn-primary text-sm w-full lg:w-auto text-center">Layanan Mandiri <i class="fas fa-external-link-alt ml-1"></i></a>
         <?php endif ?>

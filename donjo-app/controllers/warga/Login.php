@@ -37,23 +37,18 @@
 
 defined('BASEPATH') || exit('No direct script access allowed');
 
-class Daftar extends Web_Controller
+class Login extends Web_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        mandiri_timeout();
-        $this->session->daftar = true;
         $this->load->model(['mandiri_model', 'theme_model']);
-        if (! $this->setting->tampilkan_pendaftaran) {
-            redirect('layanan-mandiri/masuk');
-        }
     }
 
     public function index()
     {
         if ($this->session->mandiri == 1) {
-            redirect('layanan-mandiri');
+            redirect('warga');
         }
 
         //Initialize Session ------------
@@ -68,11 +63,10 @@ class Daftar extends Web_Controller
 
         $data = [
             'header'              => $this->header,
-            'latar_login_mandiri' => $this->theme_model->latar_login_mandiri(),
-            'form_action'         => site_url('layanan-mandiri/proses-daftar'),
+            'form_action'         => site_url('warga/proses-daftar'),
         ];
 
-        $this->load->view(MANDIRI . '/masuk', $data);
+        $this->load->view(WARGA . '/login', $data);
     }
 
     //Prosess Pendaftaran
@@ -86,17 +80,6 @@ class Daftar extends Web_Controller
         $data['pin1']      = $post['daftar_pin1'];
         $data['pin2']      = $post['daftar_pin2'];
 
-        dd($post);
-
-        if ($data['pin1'] == $data['pin2']) {
-            $this->mandiri_model->pendaftaran_mandiri($data);
-        } else {
-            $respon = [
-                'status' => -1,
-                'pesan'  => 'Mohon Maaf, PIN yang dimasukan tidak sama',
-            ];
-            $this->session->set_flashdata('info_pendaftaran', $respon);
-        }
-        redirect('layanan-mandiri/daftar');
+        var_dump($post);
     }
 }

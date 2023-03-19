@@ -144,6 +144,9 @@ $route['data-vaksinasi'] = WEB . '/vaksin';
 // Warga
 $warga = 'warga';
 $route[$warga . '/daftar'] = WARGA . '/daftar_warga';
+$route[$warga . '/login'] = WARGA . '/login';
+$route[$warga . '/proses-daftar'] = WARGA . '/login/proses-daftar';
+
 
 // Halaman Layanan Mandiri
 // Auth
@@ -153,7 +156,7 @@ $route[$mandiri . '/cek']                                     = MANDIRI . '/masu
 $route[$mandiri . '/masuk-ektp']                              = MANDIRI . '/masuk_ektp';
 $route[$mandiri . '/cek-ektp']                                = MANDIRI . '/masuk_ektp/cek_ektp';
 $route[$mandiri . '/daftar']                                  = MANDIRI . '/daftar';
-$route[$mandiri . '/proses-daftar']                           = MANDIRI . '/daftar/proses_daftar';
+$route[$mandiri . '/proses-daftar']                           = MANDIRI . '/daftar/proses_daftar'; //routing untuk register layanan mandiri
 $route[$mandiri . '/daftar/verifikasi']                       = MANDIRI . '/daftar_verifikasi';
 $route[$mandiri . '/daftar/verifikasi/telegram']              = MANDIRI . '/daftar_verifikasi/telegram';
 $route[$mandiri . '/daftar/verifikasi/telegram/kirim-userid'] = MANDIRI . '/daftar_verifikasi/kirim_otp_telegram';

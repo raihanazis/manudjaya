@@ -239,13 +239,13 @@
         <h4 class="text-h6 text-primary-200"></i> Batalkan Pengaduan</h4>
       </div>
       <form>
-      <div class="modal-body items-center justify-center">
-    <p>Are you sure you want to delete?</p>
-  </div>
-  <div class="modal-footer">
-   <button type="button" class="btn btn-secondary" id="close-modal">No</button>
-    <button type="button" class="btn btn-danger">Yes</button>
-   </div>
+      <div class="modal-body relative px-3 py-2 lg:px-5">
+        <p>Are you sure you want to delete?</p>
+      </div>
+        <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-between p-4 border-t border-gray-200 rounded-b-md">
+        <button type="button" class="btn btn-secondary" id="close-modal">No</button>
+          <button type="button" class="btn btn-primary">Yes</button>
+        </div>
       </form>
     </div>
   </div>
