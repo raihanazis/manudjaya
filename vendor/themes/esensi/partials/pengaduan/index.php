@@ -43,9 +43,13 @@
 <?php if($pengaduan) : ?>
   <section class="grid grid-cols-1 lg:grid-cols-2 gap-5">
     <?php foreach($pengaduan as $key => $value) : ?>
-      <div class="card p-5 border cursor-pointer" data-bs-toggle="modal" data-bs-target="#pengaduan<?= $value['id'] ?>">
+      <div class="card p-5 border cursor-pointer">
         <dl>
-          <dt class="font-bold lg:text-xl"><?= $value['judul']; ?></dt>
+        <div class="flex flex-col lg:flex-row items-end justify-between mb-4" data-bs-toggle="modal" data-bs-target="#popupdelete">
+          <span class="font-bold lg:text-xl"><?= $value['judul']; ?></span>
+          <span class="label label-danger pull-right text-xs flex-shrink-0"><i class="fas fa-trash"></i> Batalkan</span>
+        </div>
+        <div data-bs-toggle="modal" data-bs-target="#pengaduan<?= $value['id'] ?>">
           <ul class="inline-flex flex-wrap gap-2 w-full items-center text-xs">
             <li class="inline-flex items-center"><i class="fas fa-calendar-alt text-secondary-100 mr-2"></i> <?= $value['created_at'] ?></li>
             <li class="inline-flex items-center"><i class="fas fa-user text-secondary-100 mr-2"></i> <?= $value['nama'] ?></li>
@@ -59,10 +63,11 @@
               <?php endif; ?>
             </li>
           </ul>
-          <dd class="pt-2 flex flex-col lg:flex-row items-end justify-between gap-3">
+          <dd class="pt-2 flex flex-col lg:flex-row items-end justify-between gap-3 mb-2">
             <span class="italic"><?= substr($value['isi'], 0, 50); ?> <?php if (strlen($value['isi']) > 50) : ?>... <label class="underline">selengkapnya ></label><?php endif; ?></span>
             <span class="label label-<?= $value['jumlah'] > 0 ? 'success' : 'info'; ?> pull-right text-xs flex-shrink-0"><i class="fas fa-comments"></i> <?= $value['jumlah']; ?> Tanggapan</span>
           </dd>
+            </div>
         </dl>
       </div>
       <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="pengaduan<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="pengaduan<?= $value['id'] ?>" aria-hidden="true">
@@ -177,6 +182,26 @@
           <a href="<?= site_url('pengaduan') ?>" class="btn bg-red-500 hover:bg-red-500 text-white pull-left"><i class="fa fa-times"></i> Tutup</a>
           <button type="submit" class="btn btn-primary pull-right"><i class="fas fa-paper-plane"></i> Kirim</button>
         </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Pop up delete -->
+<div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" tabindex="-1" id="popupdelete" tabindex="-1" role="dialog" aria-labelledby="popupdelete" aria-hidden="true">
+  <div class="modal-dialog relative w-auto pointer-events-none">
+    <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+      <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+        <h4 class="text-h6 text-primary-200"></i> Batalkan Pengaduan</h4>
+      </div>
+      <form>
+      <div class="modal-body items-center justify-center">
+    <p>Are you sure you want to delete?</p>
+  </div>
+  <div class="modal-footer">
+   <button type="button" class="btn btn-secondary" id="close-modal">No</button>
+    <button type="button" class="btn btn-danger">Yes</button>
+   </div>
       </form>
     </div>
   </div>
