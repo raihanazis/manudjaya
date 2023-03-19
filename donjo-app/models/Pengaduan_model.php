@@ -165,6 +165,7 @@ class Pengaduan_model extends CI_Model
         $data = $this->validasi($this->input->post());
 
         $data['foto'] = $upload['file_name'];
+        $data['foto2'] = $upload['file_name'];
 
         return $this->db->insert('pengaduan', $data);
     }

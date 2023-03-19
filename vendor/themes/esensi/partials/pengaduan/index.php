@@ -81,7 +81,31 @@
                 <p class="text-h6 text-primary-200"><?= $value['kategori'] ?></p>
                 <p class="text-muted text-xs lg:text-sm">Pengaduan oleh <?= $value['nama']; ?> | <?= $value['created_at'] ?></p>
                 <p class="italic">"<?= $value['isi'] ?></p>
-                <?php if ($value['foto']) : ?>
+                <section class="sliderx w-full relative group transition-all duration-300 overflow-hidden">
+                  <div class="owl-carousel rounded-lg h-48 lg:h-[400px] z-10 relative w-full">
+                  <figure class="h-48 lg:h-[400px] w-full">
+                      <img src="<?= base_url(LOKASI_PENGADUAN . $value['foto']); ?>" alt="<?= $data['judul'] ?>"
+                        class="max-w-full w-full h-48 lg:h-[400px] object-cover">
+                    </figure>
+                    <figure class="h-48 lg:h-[400px] w-full">
+                      <img src="<?= base_url(LOKASI_PENGADUAN . $value['foto2']); ?>" alt="<?= $data['judul'] ?>"
+                        class="max-w-full w-full h-48 lg:h-[400px] object-cover">
+                    </figure>
+                    <figure class="h-48 lg:h-[400px] w-full">
+                      <img src="<?= base_url(LOKASI_PENGADUAN . $value['foto3']); ?>" alt="<?= $data['judul'] ?>"
+                        class="max-w-full w-full h-48 lg:h-[400px] object-cover">
+                    </figure>
+                  </div>
+                  <div class="slider-nav">
+                    <span
+                      class="slider-nav-prev px-1 py-2 cursor-pointer transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:bg-primary-100 shadow absolute top-1/2 left-0 transform -translate-y-1/2 z-[99]"
+                      title="Sebelumnya"><i class="fas fa-chevron-left text-lg text-white px-3"></i></span>
+                    <span
+                      class="slider-nav-next px-1 py-2 cursor-pointer transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:bg-primary-100 shadow absolute top-1/2 right-0 transform -translate-y-1/2 z-[99]"
+                      title="Selanjutnya"><i class="fas fa-chevron-right text-lg text-white px-3"></i></span>
+                  </div>
+                </section>
+                <!-- <?php if ($value['foto']) : ?>
                   <img class="w-auto max-w-full" src="<?= base_url(LOKASI_PENGADUAN . $value['foto']); ?>">
                 <?php endif; ?>
                 <?php if ($value['foto2']) : ?>
@@ -89,7 +113,7 @@
                 <?php endif; ?>
                 <?php if ($value['foto3']) : ?>
                   <img class="w-auto max-w-full" src="<?= base_url(LOKASI_PENGADUAN . $value['foto3']); ?>">
-                <?php endif; ?>
+                <?php endif; ?> -->
               </div>
               <?php foreach ($pengaduan_balas as $keyna => $valuena) : ?>
                 <?php if ($valuena['id_pengaduan'] && $valuena['id_pengaduan'] == $value['id']) : ?>
