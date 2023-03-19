@@ -326,6 +326,8 @@ class Data_awal_seeder extends CI_Model
                 `isi` text NOT NULL,
                 `status` int(1) NOT NULL DEFAULT 1 COMMENT '1 = menunggu proses, 2 = Sedang Diproses, 3 = Selesai Diproses',
                 `foto` varchar(100) DEFAULT NULL,
+                `foto2` varchar(100) DEFAULT NULL,
+                `foto3` varchar(100) DEFAULT NULL,
                 `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
                 `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
                 PRIMARY KEY (`id`)

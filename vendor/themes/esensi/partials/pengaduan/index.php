@@ -84,6 +84,12 @@
                 <?php if ($value['foto']) : ?>
                   <img class="w-auto max-w-full" src="<?= base_url(LOKASI_PENGADUAN . $value['foto']); ?>">
                 <?php endif; ?>
+                <?php if ($value['foto2']) : ?>
+                  <img class="w-auto max-w-full" src="<?= base_url(LOKASI_PENGADUAN . $value['foto2']); ?>">
+                <?php endif; ?>
+                <?php if ($value['foto3']) : ?>
+                  <img class="w-auto max-w-full" src="<?= base_url(LOKASI_PENGADUAN . $value['foto3']); ?>">
+                <?php endif; ?>
               </div>
               <?php foreach ($pengaduan_balas as $keyna => $valuena) : ?>
                 <?php if ($valuena['id_pengaduan'] && $valuena['id_pengaduan'] == $value['id']) : ?>
@@ -158,15 +164,29 @@
             <input name="lokasi" type="text" class="form-input" required="" placeholder="Lokasi*" value="<?= $data['lokasi'] ?>">
           </div>
           <div class="py-2">
-            <div class="relative">
+            <div class="relative mb-2">
               <input type="text" accept="image/*" onchange="readURL(this);" class="form-input" id="file_path" placeholder="Unggah Foto" name="foto">
               <input type="file" accept="image/*" onchange="readURL(this);" class="hidden" id="file" name="foto">
               <span class="absolute top-1/2 right-0 transform -translate-y-1/2">
                 <button type="button" class="btn btn-info button-flat" id="file_browser"><i class="fa fa-search"></i></button>
               </span>
             </div>
+            <div class="relative mb-3">
+              <input type="text" accept="image/*" onchange="readURL(this);" class="form-input" id="file_path2" placeholder="Unggah Foto 2" name="foto2">
+              <input type="file" accept="image/*" onchange="readURL(this);" class="hidden" id="file2" name="foto2">
+              <span class="absolute top-1/2 right-0 transform -translate-y-1/2">
+                <button type="button" class="btn btn-info button-flat" id="file_browser2"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+            <div class="relative mb-3">
+              <input type="text" accept="image/*" onchange="readURL(this);" class="form-input" id="file_path3" placeholder="Unggah Foto 3" name="foto3">
+              <input type="file" accept="image/*" onchange="readURL(this);" class="hidden" id="file3" name="foto3">
+              <span class="absolute top-1/2 right-0 transform -translate-y-1/2">
+                <button type="button" class="btn btn-info button-flat" id="file_browser3"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
             <small>Gambar: png,jpg,jpeg</small><br>
-            <br><img id="blah" src="#" alt="gambar pendukung tampil di sini" class="max-w-full w-full hidden" />
+            <!-- <br><img id="blah" src="#" alt="gambar pendukung tampil di sini" class="max-w-full w-full hidden" /> -->
           </div>
           <div class="flex gap-3">
             <div class="w-full lg:w-1/3 overflow-hidden">
@@ -293,6 +313,50 @@
   $('#file_path').click(function()
   {
     $('#file_browser').click();
+  });
+
+  $('#file_browser2').click(function(e)
+  {
+    e.preventDefault();
+    $('#file2').click();
+  });
+  $('#file2').change(function()
+  {
+    $('#file_path2').val($(this).val());
+    if ($(this).val() == '')
+    {
+      $('#'+$(this).data('submit')).attr('disabled','disabled');
+    }
+    else
+    {
+      $('#'+$(this).data('submit')).removeAttr('disabled');
+    }
+  });
+  $('#file_path2').click(function()
+  {
+    $('#file_browser2').click();
+  });
+
+  $('#file_browser3').click(function(e)
+  {
+    e.preventDefault();
+    $('#file3').click();
+  });
+  $('#file3').change(function()
+  {
+    $('#file_path3').val($(this).val());
+    if ($(this).val() == '')
+    {
+      $('#'+$(this).data('submit')).attr('disabled','disabled');
+    }
+    else
+    {
+      $('#'+$(this).data('submit')).removeAttr('disabled');
+    }
+  });
+  $('#file_path3').click(function()
+  {
+    $('#file_browser3').click();
   });
   
   $(document).ready(function() {
