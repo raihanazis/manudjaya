@@ -86,8 +86,6 @@ class Daftar extends Web_Controller
         $data['pin1']      = $post['daftar_pin1'];
         $data['pin2']      = $post['daftar_pin2'];
 
-        dd($post);
-
         if ($data['pin1'] == $data['pin2']) {
             $this->mandiri_model->pendaftaran_mandiri($data);
         } else {
