@@ -142,7 +142,9 @@ class Pengaduan_model extends CI_Model
 
     public function insert()
     {
-        $upload['file_name'] = '';
+        $upload['file_name'] = [];
+        $upload2['file_name'] = [];
+        $upload3['file_name'] = [];
 
         if ($_FILES['foto']['error'] == 0) {
             $this->load->library('MY_Upload', null, 'upload');
@@ -154,16 +156,27 @@ class Pengaduan_model extends CI_Model
 
             $this->upload->initialize($config);
 
-            if ($this->upload->do_upload('foto')) {
-                $upload = $this->upload->data();
-            } else {
-                return false;
-            }
+            // if ($this->upload->do_upload('foto')) {
+            //     $upload = $this->upload->data();
+            // } else {
+            //     return false;
+            // }
+
+            $this->upload->do_upload('foto');
+            $upload = $this->upload->data();
+
+            $this->upload->do_upload('foto2');
+            $upload2 = $this->upload->data();
+
+            $this->upload->do_upload('foto3');
+            $upload3 = $this->upload->data();
         }
 
         $data = $this->validasi($this->input->post());
 
         $data['foto'] = $upload['file_name'];
+        $data['foto2'] = $upload2['file_name'];
+        $data['foto3'] = $upload3['file_name'];
 
         return $this->db->insert('pengaduan', $data);
     }
@@ -177,6 +190,8 @@ class Pengaduan_model extends CI_Model
             'telepon' => bilangan($post['telepon']),
             'judul'   => htmlentities($post['judul']),
             'isi'     => htmlentities($post['isi']),
+            'lokasi'     => htmlentities($post['lokasi']),
+            'kategori'     => htmlentities($post['kategori']),
         ];
     }
 

@@ -62,11 +62,33 @@
             </div>
             <div class="modal-body relative py-2 px-3 lg:px-5 text-sm lg:text-base">
               <div class="w-full py-2 space-y-2">
+              <p class="text-h6 text-primary-200"><?= $value['kategori'] ?></p>
                 <p class="text-muted text-xs lg:text-sm">Pengaduan oleh <?= $value['nama']; ?> | <?= $value['created_at'] ?></p>
                 <p class="italic">"<?= $value['isi'] ?></p>
-                <?php if ($value['foto']) : ?>
-                  <img class="w-auto max-w-full" src="<?= base_url(LOKASI_PENGADUAN . $value['foto']); ?>">
-                <?php endif; ?>
+                <section class="sliderx w-full relative group transition-all duration-300 overflow-hidden">
+                  <div class="owl-carousel rounded-lg h-48 lg:h-[400px] z-10 relative w-full">
+                  <figure class="h-48 lg:h-[400px] w-full">
+                      <img src="<?= base_url(LOKASI_PENGADUAN . $value['foto']); ?>" alt="<?= $data['judul'] ?>"
+                        class="max-w-full w-full h-48 lg:h-[400px] object-cover">
+                    </figure>
+                    <figure class="h-48 lg:h-[400px] w-full">
+                      <img src="<?= base_url(LOKASI_PENGADUAN . $value['foto2']); ?>" alt="<?= $data['judul'] ?>"
+                        class="max-w-full w-full h-48 lg:h-[400px] object-cover">
+                    </figure>
+                    <figure class="h-48 lg:h-[400px] w-full">
+                      <img src="<?= base_url(LOKASI_PENGADUAN . $value['foto3']); ?>" alt="<?= $data['judul'] ?>"
+                        class="max-w-full w-full h-48 lg:h-[400px] object-cover">
+                    </figure>
+                  </div>
+                  <div class="slider-nav">
+                    <span
+                      class="slider-nav-prev px-1 py-2 cursor-pointer transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:bg-primary-100 shadow absolute top-1/2 left-0 transform -translate-y-1/2 z-[99]"
+                      title="Sebelumnya"><i class="fas fa-chevron-left text-lg text-white px-3"></i></span>
+                    <span
+                      class="slider-nav-next px-1 py-2 cursor-pointer transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:bg-primary-100 shadow absolute top-1/2 right-0 transform -translate-y-1/2 z-[99]"
+                      title="Selanjutnya"><i class="fas fa-chevron-right text-lg text-white px-3"></i></span>
+                  </div>
+                </section>
               </div>
               <?php foreach ($pengaduan_balas as $keyna => $valuena) : ?>
                 <?php if ($valuena['id_pengaduan'] && $valuena['id_pengaduan'] == $value['id']) : ?>
@@ -122,6 +144,22 @@
             <input name="judul" type="text" class="form-input" required="" placeholder="Judul*" value="<?= $data['judul'] ?>">
           </div>
           <div class="py-2">
+          <select class="form-control" name="kategori" id="kategori" required>
+            <option value="">No Selected</option>
+            <option value="Layanan Administrasi Kependudukan">Layanan Administrasi Kependudukan</option>
+            <option value="Bencana">Bencana</option>
+            <option value="Fasilitas Sosial/Umum">Fasilitas Sosial/Umum</option>
+            <option value="Pariwisata dan Kebudayaan">Pariwisata dan Kebudayaan</option>
+            <option value="Gangguan Ketentraman dan Ketertiban">Gangguan Ketentraman dan Ketertiban</option>
+            <option value="Kesehatan">Kesehatan</option>
+            <option value="UMKM">UMKM</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+          </div>
+          <div class="py-2">
+            <input name="lokasi" type="text" class="form-input" required="" placeholder="Lokasi*" value="<?= $data['lokasi'] ?>">
+          </div>
+          <div class="py-2">
             <textarea name="isi" required="" class="form-textarea" placeholder="Isi Pengaduan*" rows="4"><?= $data['isi'] ?></textarea>
           </div>
           <div class="py-2">
@@ -132,8 +170,22 @@
                 <button type="button" class="btn btn-info button-flat" id="file_browser"><i class="fa fa-search"></i></button>
               </span>
             </div>
+            <div class="relative mb-3">
+              <input type="text" accept="image/*" onchange="readURL(this);" class="form-input" id="file_path2" placeholder="Unggah Foto 2" name="foto2">
+              <input type="file" accept="image/*" onchange="readURL(this);" class="hidden" id="file2" name="foto2">
+              <span class="absolute top-1/2 right-0 transform -translate-y-1/2">
+                <button type="button" class="btn btn-info button-flat" id="file_browser2"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+            <div class="relative mb-3">
+              <input type="text" accept="image/*" onchange="readURL(this);" class="form-input" id="file_path3" placeholder="Unggah Foto 3" name="foto3">
+              <input type="file" accept="image/*" onchange="readURL(this);" class="hidden" id="file3" name="foto3">
+              <span class="absolute top-1/2 right-0 transform -translate-y-1/2">
+                <button type="button" class="btn btn-info button-flat" id="file_browser3"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
             <small>Gambar: png,jpg,jpeg</small><br>
-            <br><img id="blah" src="#" alt="gambar pendukung tampil di sini" class="max-w-full w-full hidden" />
+            <!-- <br><img id="blah" src="#" alt="gambar pendukung tampil di sini" class="max-w-full w-full hidden" /> -->
           </div>
           <div class="flex gap-3">
             <div class="w-full lg:w-1/3 overflow-hidden">
@@ -240,6 +292,50 @@
   $('#file_path').click(function()
   {
     $('#file_browser').click();
+  });
+
+  $('#file_browser2').click(function(e)
+  {
+    e.preventDefault();
+    $('#file2').click();
+  });
+  $('#file2').change(function()
+  {
+    $('#file_path2').val($(this).val());
+    if ($(this).val() == '')
+    {
+      $('#'+$(this).data('submit')).attr('disabled','disabled');
+    }
+    else
+    {
+      $('#'+$(this).data('submit')).removeAttr('disabled');
+    }
+  });
+  $('#file_path2').click(function()
+  {
+    $('#file_browser2').click();
+  });
+
+  $('#file_browser3').click(function(e)
+  {
+    e.preventDefault();
+    $('#file3').click();
+  });
+  $('#file3').change(function()
+  {
+    $('#file_path3').val($(this).val());
+    if ($(this).val() == '')
+    {
+      $('#'+$(this).data('submit')).attr('disabled','disabled');
+    }
+    else
+    {
+      $('#'+$(this).data('submit')).removeAttr('disabled');
+    }
+  });
+  $('#file_path3').click(function()
+  {
+    $('#file_browser3').click();
   });
   
   $(document).ready(function() {
