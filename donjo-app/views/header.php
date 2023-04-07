@@ -116,8 +116,8 @@
 		<div class="wrapper">
 			<header class="main-header">
 				<a href="<?= site_url() ?>" target="_blank" class="logo">
-					<span class="logo-mini"><b>SID</b></span>
-					<span class="logo-lg"><b>OpenSID</b></span>
+					<span class="logo-mini"><b>MANUDJAYA</b></span>
+					<span class="logo-lg"><b>MANUDJAYA</b></span>
 				</a>
 				<nav class="navbar navbar-static-top">
 					<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">

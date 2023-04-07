@@ -50,7 +50,13 @@ defined('BASEPATH') || exit('No direct script access allowed');
 				<img src="<?= gambar_desa($desa['logo']); ?>" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<strong><?= ucwords($this->setting->sebutan_desa . ' ' . $desa['nama_desa']); ?></strong>
+				<strong>MANUDJAYA</strong>
+				</br>
+				<a>Kecamatan Senen</a>
+				</br>
+				<a>Kota Jakarta Pusat</a>
+				</br>
+				<!-- <strong><?= ucwords($this->setting->sebutan_desa . ' ' . $desa['nama_desa']); ?></strong>
 				</br>
 				<?php
                     $seb_kec = $this->setting->sebutan_kecamatan;
@@ -66,7 +72,7 @@ $nam_kab                     = $desa['nama_kabupaten'];
 					<?= ucwords(substr($seb_kec, 0, 3) . '. ' . $nam_kec); ?>
 					</br>
 					<?= ucwords(substr($seb_kab, 0, 3) . '. ' . $nam_kab); ?>
-				<?php	endif; ?>
+				<?php	endif; ?> -->
 			</div>
 		</div>
 		<ul class="sidebar-menu" data-widget="tree">

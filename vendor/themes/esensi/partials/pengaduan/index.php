@@ -170,7 +170,7 @@
                 <button type="button" class="btn btn-info button-flat" id="file_browser"><i class="fa fa-search"></i></button>
               </span>
             </div>
-            <div class="relative mb-3">
+            <div class="relative mt-3 mb-3">
               <input type="text" accept="image/*" onchange="readURL(this);" class="form-input" id="file_path2" placeholder="Unggah Foto 2" name="foto2">
               <input type="file" accept="image/*" onchange="readURL(this);" class="hidden" id="file2" name="foto2">
               <span class="absolute top-1/2 right-0 transform -translate-y-1/2">

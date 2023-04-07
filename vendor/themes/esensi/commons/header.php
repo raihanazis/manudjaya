@@ -14,14 +14,16 @@
         <figure>
           <img src="<?= gambar_desa($desa['logo']) ?>" alt="Logo <?= ucfirst($this->setting->sebutan_desa).' '.ucwords($desa['nama_desa']) ?>" class="h-16 mx-auto pb-2">
         </figure>
-        <span class="text-h2 block"><?= NAMA_DESA ?></span>
+        <span class="text-h1 block">Desa Manudjaya</span>
+        <span class="text-h6 block">Kec. Senen, Kota Jakarta Pusat</span>
+        <!-- <span class="text-h2 block"><?= NAMA_DESA ?></span>
         <p><?= ucfirst($this->setting->sebutan_kecamatan_singkat) ?>
           <?= ucwords($desa['nama_kecamatan']) ?>,
           <?= ucfirst($this->setting->sebutan_kabupaten_singkat) ?>
           <?= ucwords($desa['nama_kabupaten']) ?>,
           Provinsi 
           <?= ucwords($desa['nama_propinsi']) ?>
-        </p>
+        </p> -->
       </a>
       <?php if($w_gal) : ?>
         <marquee onmouseover="this.stop();" onmouseout="this.start();" scrollamount="4" class="block w-10/12 lg:w-1/4 mx-auto">
